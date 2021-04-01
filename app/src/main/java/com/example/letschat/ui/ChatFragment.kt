@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.example.letschat.R
@@ -32,6 +33,14 @@ class ChatFragment : Fragment(R.layout.chat_fragment) {
             val message = binding.etMessage.text.toString()
             viewModel.saveMessage(message)
         }
+
+        binding.etMessage.addTextChangedListener {
+            viewModel.onMessageTextChanged(it.toString())
+        }
+
+        viewModel.enableSendButton.observe(viewLifecycleOwner, {
+            binding.fabSend.isEnabled = it
+        })
     }
 
     override fun onDestroyView() {
