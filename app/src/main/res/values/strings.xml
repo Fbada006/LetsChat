@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">LetsChat</string>
-    <string name="label_chat">Chat</string>
+    <string name="hint_type_a_message">Type a message</string>
+    <string name="cd_send_message_image">Send message image</string>
 </resources>

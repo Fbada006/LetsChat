@@ -3,7 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/FBada/Desktop/Projects/LetsChat/app/src/main/res/layout/chat_fragment.xml" value="0.228125" />
+        <entry key="..\:/Users/FBada/Desktop/Projects/LetsChat/app/src/main/res/drawable/rounded_edges.xml" value="0.25833333333333336" />
+        <entry key="..\:/Users/FBada/Desktop/Projects/LetsChat/app/src/main/res/layout/chat_fragment.xml" value="0.2" />
       </map>
     </option>
   </component>
