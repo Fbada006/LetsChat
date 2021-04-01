@@ -12,6 +12,6 @@ interface MessageDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertMessage(message: Message)
 
-    @Query("SELECT * FROM word_table ORDER BY word ASC")
+    @Query("SELECT * FROM messages_table ORDER BY time DESC")
     fun getAllMessages(): Flow<List<Message>>
 }
