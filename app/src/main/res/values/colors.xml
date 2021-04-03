@@ -3,7 +3,5 @@
     <color name="colorPrimary">#FF6200EE</color>
     <color name="colorPrimaryVariant">#FF3700B3</color>
     <color name="colorAccent">#FF1278</color>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
-    <color name="light_grey">#f5f5f5</color>
+    <color name="light_grey">#F2F5FB</color>
 </resources>
