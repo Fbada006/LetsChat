@@ -36,7 +36,8 @@ class ChatFragment : Fragment(R.layout.chat_fragment) {
 
         binding.fabSend.setOnClickListener {
             val message = binding.etMessage.text.toString()
-            viewModel.saveMessage(message)
+            val isMine = listOf(true, false).random()
+            viewModel.saveMessage(message, isMine)
         }
 
         binding.etMessage.addTextChangedListener {

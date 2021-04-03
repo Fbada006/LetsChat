@@ -9,5 +9,6 @@ data class Message(
     @PrimaryKey(autoGenerate = true)
     val id: Int = 0,
     val time: Long = System.currentTimeMillis(),
-    val text: String
+    val text: String,
+    val isMine: Boolean = false
 )
