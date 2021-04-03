@@ -51,7 +51,7 @@
                 android:gravity="top"
                 android:hint="@string/hint_type_a_message"
                 android:importantForAutofill="no"
-                android:inputType="text" />
+                android:inputType="textCapSentences" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
