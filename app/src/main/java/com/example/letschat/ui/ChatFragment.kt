@@ -1,5 +1,6 @@
 package com.example.letschat.ui
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,7 +13,6 @@ import com.example.letschat.R
 import com.example.letschat.databinding.ChatFragmentBinding
 import com.example.letschat.utils.hideKeyboard
 import dagger.hilt.android.AndroidEntryPoint
-
 
 @AndroidEntryPoint
 class ChatFragment : Fragment(R.layout.chat_fragment) {
@@ -36,10 +36,7 @@ class ChatFragment : Fragment(R.layout.chat_fragment) {
         messagesAdapter = MessagesAdapter()
 
         binding.fabSend.setOnClickListener {
-            val message = binding.etMessage.text.toString()
-            clearTextAndHideKeyboard()
-            val isMine = listOf(true, false).random()
-            viewModel.saveMessage(message, isMine)
+            displaySendChoice()
         }
 
         binding.etMessage.addTextChangedListener {
@@ -51,6 +48,24 @@ class ChatFragment : Fragment(R.layout.chat_fragment) {
         })
 
         initRecyclerView()
+    }
+
+    private fun displaySendChoice() {
+        val builder = AlertDialog.Builder(context)
+        builder.setTitle(getString(R.string.send_as))
+
+        val choices =
+            arrayOf(getString(R.string.send_as_me_label), getString(R.string.send_as_not_me_label))
+        builder.setItems(choices) { dialog, which ->
+            dialog.dismiss()
+            val message = binding.etMessage.text.toString()
+            clearTextAndHideKeyboard()
+            val isMine = choices[which] == getString(R.string.send_as_me_label)
+            viewModel.saveMessage(message, isMine)
+        }
+
+        val dialog = builder.create()
+        dialog.show()
     }
 
     private fun clearTextAndHideKeyboard() {
