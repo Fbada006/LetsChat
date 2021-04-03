@@ -33,9 +33,9 @@ class ChatViewModel @Inject constructor(private val repository: IMessagesReposit
         }
     }
 
-    fun saveMessage(message: String) {
+    fun saveMessage(message: String, isMine: Boolean) {
         viewModelScope.launch {
-            repository.insertMessage(Message(text = message))
+            repository.insertMessage(Message(text = message, isMine = isMine))
         }
     }
 

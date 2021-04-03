@@ -2,6 +2,7 @@ package com.example.letschat.ui
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -22,7 +23,15 @@ class MessagesAdapter :
     class MessageViewHolder constructor(private val binding: ItemMessageBubbleBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(item: Message) {
-            binding.tvMessage.text = item.text
+            if (item.isMine) {
+                binding.tvMessageOutgoing.text = item.text
+                binding.tvMessageOutgoing.isVisible = true
+                binding.tvMessageIncoming.isVisible = false
+            } else {
+                binding.tvMessageOutgoing.isVisible = false
+                binding.tvMessageIncoming.isVisible = true
+                binding.tvMessageIncoming.text = item.text
+            }
         }
 
         companion object {

@@ -10,6 +10,7 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.DefaultItemAnimator
 import com.example.letschat.R
 import com.example.letschat.databinding.ChatFragmentBinding
+import com.example.letschat.utils.hideKeyboard
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -36,7 +37,9 @@ class ChatFragment : Fragment(R.layout.chat_fragment) {
 
         binding.fabSend.setOnClickListener {
             val message = binding.etMessage.text.toString()
-            viewModel.saveMessage(message)
+            clearTextAndHideKeyboard()
+            val isMine = listOf(true, false).random()
+            viewModel.saveMessage(message, isMine)
         }
 
         binding.etMessage.addTextChangedListener {
@@ -48,6 +51,12 @@ class ChatFragment : Fragment(R.layout.chat_fragment) {
         })
 
         initRecyclerView()
+    }
+
+    private fun clearTextAndHideKeyboard() {
+        binding.etMessage.text?.clear()
+        binding.etMessage.clearFocus()
+        hideKeyboard()
     }
 
     private fun initRecyclerView() {

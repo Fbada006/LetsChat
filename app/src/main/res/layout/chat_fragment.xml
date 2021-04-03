@@ -10,6 +10,7 @@
         android:id="@+id/rv_messages"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:padding="@dimen/margin_18"
         android:scrollbars="vertical"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toTopOf="@id/layout_message_input"
@@ -23,8 +24,8 @@
         android:id="@+id/layout_message_input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#f5f5f5"
-        android:padding="12dp"
+        android:background="@color/light_grey"
+        android:padding="@dimen/margin_12"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -33,13 +34,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:layout_marginEnd="8dp"
+            android:layout_marginEnd="@dimen/margin_8"
             android:layout_toStartOf="@id/fab_send"
             app:boxBackgroundMode="none"
-            app:boxCornerRadiusBottomEnd="25dp"
-            app:boxCornerRadiusBottomStart="25dp"
-            app:boxCornerRadiusTopEnd="25dp"
-            app:boxCornerRadiusTopStart="25dp"
+            app:boxCornerRadiusBottomEnd="@dimen/margin_25"
+            app:boxCornerRadiusBottomStart="@dimen/margin_25"
+            app:boxCornerRadiusTopEnd="@dimen/margin_25"
+            app:boxCornerRadiusTopStart="@dimen/margin_25"
             app:hintEnabled="false">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -50,7 +51,7 @@
                 android:gravity="top"
                 android:hint="@string/hint_type_a_message"
                 android:importantForAutofill="no"
-                android:inputType="text" />
+                android:inputType="textCapSentences" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
