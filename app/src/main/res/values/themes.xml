@@ -2,9 +2,10 @@
     <!-- Base application theme. -->
     <style name="Theme.LetsChat" parent="Theme.MaterialComponents.Light.DarkActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_500</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryVariant">@color/colorPrimaryVariant</item>
         <item name="colorOnPrimary">@color/white</item>
+        <item name="colorAccent">@color/colorAccent</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
     </style>
@@ -14,7 +15,7 @@
         <item name="layout_constraintWidth_percent">0.7</item>
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:padding">8dp</item>
+        <item name="android:padding">@dimen/margin_8</item>
         <item name="android:textAppearance">@style/TextAppearance.MaterialComponents.Body1</item>
     </style>
 </resources>
