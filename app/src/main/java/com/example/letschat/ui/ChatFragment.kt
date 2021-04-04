@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import androidx.core.view.isVisible
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
@@ -15,6 +17,7 @@ import com.example.letschat.databinding.ChatFragmentBinding
 import com.example.letschat.utils.Resource
 import com.example.letschat.utils.hideKeyboard
 import dagger.hilt.android.AndroidEntryPoint
+
 
 @AndroidEntryPoint
 class ChatFragment : Fragment(R.layout.chat_fragment) {
@@ -39,7 +42,22 @@ class ChatFragment : Fragment(R.layout.chat_fragment) {
         viewModel.getAllMessages()
 
         binding.fabSend.setOnClickListener {
-            displaySendChoice()
+            val slideOutBottom: Animation = AnimationUtils.loadAnimation(
+                context,
+                R.anim.out_bottom
+            )
+            slideOutBottom.setAnimationListener(object : Animation.AnimationListener {
+                override fun onAnimationStart(animation: Animation?) {
+                }
+
+                override fun onAnimationEnd(animation: Animation?) {
+                    displaySendChoice()
+                }
+
+                override fun onAnimationRepeat(animation: Animation?) {
+                }
+            })
+            binding.layoutMessageInput.startAnimation(slideOutBottom)
         }
 
         binding.etMessage.addTextChangedListener {

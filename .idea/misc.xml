@@ -4,7 +4,9 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/FBada/Desktop/Projects/LetsChat/app/src/main/res/drawable/ic_send.xml" value="0.25833333333333336" />
+        <entry key="..\:/Users/FBada/Desktop/Projects/LetsChat/app/src/main/res/drawable/in_top.xml" value="0.25833333333333336" />
         <entry key="..\:/Users/FBada/Desktop/Projects/LetsChat/app/src/main/res/drawable/incoming_rounded_edges.xml" value="0.25833333333333336" />
+        <entry key="..\:/Users/FBada/Desktop/Projects/LetsChat/app/src/main/res/drawable/out_bottom.xml" value="0.25833333333333336" />
         <entry key="..\:/Users/FBada/Desktop/Projects/LetsChat/app/src/main/res/drawable/outgoing_rounded_edges.xml" value="0.25833333333333336" />
         <entry key="..\:/Users/FBada/Desktop/Projects/LetsChat/app/src/main/res/drawable/rounded_edges.xml" value="0.25833333333333336" />
         <entry key="..\:/Users/FBada/Desktop/Projects/LetsChat/app/src/main/res/layout/chat_fragment.xml" value="0.264" />
