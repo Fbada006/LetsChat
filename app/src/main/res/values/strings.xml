@@ -2,4 +2,7 @@
     <string name="app_name">LetsChat</string>
     <string name="hint_type_a_message">Type a message</string>
     <string name="cd_send_message_image">Send message image</string>
+    <string name="send_as">Send As</string>
+    <string name="send_as_me_label">Me</string>
+    <string name="send_as_not_me_label">Not me</string>
 </resources>
