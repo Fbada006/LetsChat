@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.LetsChat" parent="Theme.MaterialComponents.Light.DarkActionBar">
+    <style name="Theme.LetsChat" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryVariant">@color/colorPrimaryVariant</item>
@@ -18,5 +18,12 @@
         <item name="android:padding">@dimen/margin_8</item>
         <item name="android:textIsSelectable">true</item>
         <item name="android:textAppearance">@style/TextAppearance.MaterialComponents.Body1</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.MaterialComponents">
+        <!--Change text color of the title on Toolbar-->
+        <item name="android:textColorPrimary">@android:color/white</item>
+        <!--This line changes the color of icons in toolbar (back, overflow menu icons)-->
+        <item name="android:textColorSecondary">@android:color/white</item>
     </style>
 </resources>
