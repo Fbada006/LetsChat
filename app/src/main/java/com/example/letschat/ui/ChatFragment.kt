@@ -20,7 +20,7 @@ import dagger.hilt.android.AndroidEntryPoint
 
 
 @AndroidEntryPoint
-class ChatFragment : Fragment(R.layout.chat_fragment) {
+class ChatFragment : Fragment() {
 
     private val viewModel: ChatViewModel by viewModels()
     private var _binding: ChatFragmentBinding? = null
