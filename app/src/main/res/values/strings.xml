@@ -6,4 +6,5 @@
     <string name="send_as_me_label">Me</string>
     <string name="send_as_not_me_label">Not me</string>
     <string name="cannot_retrieve_messages">Cannot retrieve your messages at this time. Try sending a message below if you have none.</string>
+    <string name="start_chat">Start Chat</string>
 </resources>
