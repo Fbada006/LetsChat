@@ -1,5 +1,6 @@
 package com.example.letschat.utils
 
+import com.example.letschat.BuildConfig
 import io.ably.lib.realtime.AblyRealtime
 import io.ably.lib.realtime.Channel
 import io.ably.lib.realtime.CompletionListener
@@ -9,26 +10,27 @@ import io.ably.lib.types.AblyException
 import io.ably.lib.types.ErrorInfo
 import timber.log.Timber
 
-class AblyConnection {
+object AblyConnection {
 
-    companion object {
-        private const val API_KEY = "API_KEY_GOES_HERE"
-        private const val ABLY_CHANNEL_NAME = "mobile:chat"
-        private const val TAG = "AblyConnectionUtils"
-    }
+    private const val API_KEY = BuildConfig.API_KEY
+    private const val ABLY_CHANNEL_NAME = "mobile:chat"
+    private const val TAG = "AblyConnectionUtils"
 
     private lateinit var sessionChannel: Channel
     private lateinit var ablyRealtime: AblyRealtime
     private lateinit var messageListener: Channel.MessageListener
+    private var userName: String? = null
 
     @Throws(AblyException::class)
-    fun initListener(listener: Channel.MessageListener) {
+    fun initListener( listener: Channel.MessageListener) {
         sessionChannel.subscribe(listener)
         messageListener = listener
     }
 
     @Throws(AblyException::class)
-    fun establishConnectionForID(callback: AblyConnectionCallback) {
+    fun establishConnectionForID(userName: String,callback: AblyConnectionCallback) {
+        this.userName = AblyConnection.userName
+
         ablyRealtime = AblyRealtime(API_KEY)
 
         ablyRealtime.connection.on(ConnectionStateListener { connectionStateChange ->
@@ -78,7 +80,7 @@ class AblyConnection {
     }
 
     @Throws(AblyException::class)
-    fun sendMessage(userName: String, message: String?, callback: AblyConnectionCallback) {
+    fun sendMessage(message: String?, callback: AblyConnectionCallback) {
         sessionChannel.publish(userName, message, object : CompletionListener {
             override fun onSuccess() {
                 callback.onConnectionCallback(null)
@@ -86,6 +88,7 @@ class AblyConnection {
             }
 
             override fun onError(errorInfo: ErrorInfo) {
+                Timber.e("Error received sending message", errorInfo)
                 callback.onConnectionCallback(Exception(errorInfo.message))
             }
         })
