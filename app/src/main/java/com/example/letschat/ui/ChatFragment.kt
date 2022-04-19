@@ -64,9 +64,9 @@ class ChatFragment : Fragment() {
             viewModel.onMessageTextChanged(it.toString())
         }
 
-        viewModel.enableSendButton.observe(viewLifecycleOwner, {
+        viewModel.enableSendButton.observe(viewLifecycleOwner) {
             binding.fabSend.isEnabled = it
-        })
+        }
 
         initRecyclerView()
     }
@@ -101,7 +101,7 @@ class ChatFragment : Fragment() {
             itemAnimator = DefaultItemAnimator()
         }
 
-        viewModel.allMessages.observe(viewLifecycleOwner, { messageRes ->
+        viewModel.allMessages.observe(viewLifecycleOwner) { messageRes ->
             when (messageRes) {
                 is Resource.Failure -> {
                     showFailure()
@@ -118,7 +118,7 @@ class ChatFragment : Fragment() {
                     }, 500)
                 }
             }
-        })
+        }
     }
 
     private fun showFailure() {
