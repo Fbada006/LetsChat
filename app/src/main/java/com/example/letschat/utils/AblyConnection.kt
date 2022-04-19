@@ -29,7 +29,7 @@ object AblyConnection {
 
     @Throws(AblyException::class)
     fun establishConnectionForID(userName: String,callback: AblyConnectionCallback) {
-        this.userName = AblyConnection.userName
+        this.userName = userName
 
         ablyRealtime = AblyRealtime(API_KEY)
 
