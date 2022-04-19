@@ -53,29 +53,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="wrap_content"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_message"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_marginEnd="@dimen/margin_8"
             android:layout_toStartOf="@id/fab_send"
-            app:boxBackgroundMode="none"
-            app:boxCornerRadiusBottomEnd="@dimen/margin_25"
-            app:boxCornerRadiusBottomStart="@dimen/margin_25"
-            app:boxCornerRadiusTopEnd="@dimen/margin_25"
-            app:boxCornerRadiusTopStart="@dimen/margin_25"
-            app:hintEnabled="false">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/et_message"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/rounded_edges"
-                android:gravity="top"
-                android:hint="@string/hint_type_a_message"
-                android:importantForAutofill="no"
-                android:inputType="textCapSentences" />
-        </com.google.android.material.textfield.TextInputLayout>
+            android:hint="@string/hint_type_a_message"
+            android:importantForAutofill="no"
+            android:inputType="textCapSentences" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab_send"
