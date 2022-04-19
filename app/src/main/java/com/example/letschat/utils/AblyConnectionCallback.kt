@@ -1,5 +1,5 @@
 package com.example.letschat.utils
 
-interface ConnectionCallback {
+interface AblyConnectionCallback {
     fun onConnectionCallback(exception: Exception?)
 }

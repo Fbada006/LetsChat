@@ -28,7 +28,7 @@ class AblyConnection {
     }
 
     @Throws(AblyException::class)
-    fun establishConnectionForID(callback: ConnectionCallback) {
+    fun establishConnectionForID(callback: AblyConnectionCallback) {
         ablyRealtime = AblyRealtime(API_KEY)
 
         ablyRealtime.connection.on(ConnectionStateListener { connectionStateChange ->
@@ -78,7 +78,7 @@ class AblyConnection {
     }
 
     @Throws(AblyException::class)
-    fun sendMessage(userName: String, message: String?, callback: ConnectionCallback) {
+    fun sendMessage(userName: String, message: String?, callback: AblyConnectionCallback) {
         sessionChannel.publish(userName, message, object : CompletionListener {
             override fun onSuccess() {
                 callback.onConnectionCallback(null)
