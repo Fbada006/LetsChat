@@ -55,7 +55,7 @@ class ChatFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        AblyConnection.establishConnectionForID("userNameHere", connectionCallback)
+        AblyConnection.establishConnectionForID(connectionCallback)
         _binding = ChatFragmentBinding.inflate(layoutInflater, container, false)
         return binding.root
     }
