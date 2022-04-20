@@ -22,13 +22,13 @@ object AblyConnection {
     private var userName: String? = null
 
     @Throws(AblyException::class)
-    fun initListener( listener: Channel.MessageListener) {
+    fun initListener(listener: Channel.MessageListener) {
         sessionChannel.subscribe(listener)
         messageListener = listener
     }
 
     @Throws(AblyException::class)
-    fun establishConnectionForID(userName: String,callback: AblyConnectionCallback) {
+    fun establishConnectionForID(userName: String, callback: AblyConnectionCallback) {
         this.userName = userName
 
         ablyRealtime = AblyRealtime(API_KEY)
@@ -88,7 +88,7 @@ object AblyConnection {
             }
 
             override fun onError(errorInfo: ErrorInfo) {
-                Timber.e("Error received sending message", errorInfo)
+                Timber.e(errorInfo.toString())
                 callback.onConnectionCallback(Exception(errorInfo.message))
             }
         })

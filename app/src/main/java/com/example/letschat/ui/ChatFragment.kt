@@ -42,10 +42,10 @@ class ChatFragment : Fragment() {
                 if (exception == null) {
                     AblyConnection.initListener(messageListener)
                 } else {
-                    Timber.e("Error initialising listener with a non null exception ", exception)
+                    Timber.e(exception, "Error initialising listener with a non null exception ")
                 }
             } catch (exception: AblyException) {
-                Timber.e("Error initialising listener ", exception)
+                Timber.e(exception, "Error initialising listener ")
             }
         }
     }
@@ -71,13 +71,13 @@ class ChatFragment : Fragment() {
                 AblyConnection.sendMessage(message, object : AblyConnectionCallback {
                     override fun onConnectionCallback(exception: Exception?) {
                         if (exception != null) {
-                            Timber.e("Error sending message", exception)
+                            Timber.e(exception, "Error sending message")
                         }
                         activity?.runOnUiThread { clearTextAndHideKeyboard() }
                     }
                 })
             } catch (exception: AblyException) {
-                Timber.e("Error in clicking send button", exception)
+                Timber.e(exception, "Error in clicking send button")
             }
         }
 
