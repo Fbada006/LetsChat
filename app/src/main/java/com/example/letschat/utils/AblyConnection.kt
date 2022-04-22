@@ -21,13 +21,11 @@ object AblyConnection {
     private lateinit var messageListener: Channel.MessageListener
     private var userName: String? = null
 
-    @Throws(AblyException::class)
     fun initListener(listener: Channel.MessageListener) {
         sessionChannel.subscribe(listener)
         messageListener = listener
     }
 
-    @Throws(AblyException::class)
     fun establishConnectionForID(userName: String, callback: AblyConnectionCallback) {
         this.userName = userName
 
@@ -79,7 +77,6 @@ object AblyConnection {
         })
     }
 
-    @Throws(AblyException::class)
     fun sendMessage(message: String?, callback: AblyConnectionCallback) {
         sessionChannel.publish(userName, message, object : CompletionListener {
             override fun onSuccess() {
