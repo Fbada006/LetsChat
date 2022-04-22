@@ -7,14 +7,17 @@ import io.ably.lib.realtime.CompletionListener
 import io.ably.lib.realtime.ConnectionState
 import io.ably.lib.realtime.ConnectionStateListener
 import io.ably.lib.types.AblyException
+import io.ably.lib.types.ChannelOptions
 import io.ably.lib.types.ErrorInfo
 import timber.log.Timber
+
 
 object AblyConnection {
 
     private const val API_KEY = BuildConfig.API_KEY
     private const val ABLY_CHANNEL_NAME = "mobile:chat"
     private const val TAG = "AblyConnectionUtils"
+    private const val CIPHER_KEY_BASE64 = "G98udOf2gFPJd0ITsIng8DdQJ32yhAjtRdTsMnCqkmw="
 
     private lateinit var sessionChannel: Channel
     private lateinit var ablyRealtime: AblyRealtime
@@ -30,6 +33,7 @@ object AblyConnection {
         this.userName = userName
 
         ablyRealtime = AblyRealtime(API_KEY)
+        val options = ChannelOptions.withCipherKey(CIPHER_KEY_BASE64)
 
         ablyRealtime.connection.on(ConnectionStateListener { connectionStateChange ->
             when (connectionStateChange.current) {
@@ -43,7 +47,7 @@ object AblyConnection {
                     // Ignore this
                 }
                 ConnectionState.connected -> {
-                    sessionChannel = ablyRealtime.channels[ABLY_CHANNEL_NAME]
+                    sessionChannel = ablyRealtime.channels[ABLY_CHANNEL_NAME, options]
 
                     try {
                         sessionChannel.attach()
