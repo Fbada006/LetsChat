@@ -9,6 +9,7 @@ import io.ably.lib.realtime.ConnectionStateListener
 import io.ably.lib.types.AblyException
 import io.ably.lib.types.ChannelOptions
 import io.ably.lib.types.ErrorInfo
+import io.ably.lib.util.Crypto.generateRandomKey
 import timber.log.Timber
 
 
@@ -17,7 +18,7 @@ object AblyConnection {
     private const val API_KEY = BuildConfig.API_KEY
     private const val ABLY_CHANNEL_NAME = "mobile:chat"
     private const val TAG = "AblyConnectionUtils"
-    private const val CIPHER_KEY_BASE64 = "G98udOf2gFPJd0ITsIng8DdQJ32yhAjtRdTsMnCqkmw="
+    private val CIPHER_KEY_BASE64 = generateRandomKey()
 
     private lateinit var sessionChannel: Channel
     private lateinit var ablyRealtime: AblyRealtime
